@@ -3,55 +3,903 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Karting Brothers - Etapa Única</title>
+<meta name="theme-color" content="#080808">
+<title>The Karting Brothers</title>
+  
 <style>
-:root{--bg:#070707;--panel:#101010;--panel2:#161616;--line:#292929;--red:#e10600;--red2:#ff2a22;--text:#f7f7f7;--muted:#929292;--gold:#f4c542;--silver:#c9c9c9;--bronze:#c88455}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 75% 0%,#24100f 0,#0a0a0a 28%,#070707 62%);color:var(--text);font-family:Inter,Arial,sans-serif;overflow-x:hidden}.app{display:flex;min-height:100vh}.sidebar{width:255px;background:rgba(10,10,10,.96);border-right:1px solid #252525;padding:22px 15px;position:fixed;left:0;top:0;bottom:0;z-index:10;box-shadow:8px 0 35px rgba(0,0,0,.35)}.brand{font-weight:1000;letter-spacing:1.5px;font-size:19px;line-height:1.08;padding:5px 10px 24px}.brand span{display:block;color:var(--red2);font-size:10px;margin-top:8px;letter-spacing:2.5px}.nav-title{color:#5f5f5f;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;padding:0 10px;margin:8px 0}.nav a{display:block;color:#aaa;text-decoration:none;padding:13px 13px;border-radius:10px;margin:4px 0;font-size:14px;font-weight:700;transition:.2s}.nav a:hover{background:#191919;color:#fff;transform:translateX(2px)}.nav a.active{background:linear-gradient(90deg,rgba(225,6,0,.2),#181818);color:#fff;border:1px solid #3a1918;box-shadow:inset 3px 0 0 var(--red2)}.side-event{margin:27px 7px 0;padding:15px;border:1px solid #342020;border-radius:12px;background:linear-gradient(145deg,#17100f,#0d0d0d);position:relative;overflow:hidden}.side-event:before{content:'';position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent)}.side-event b{font-size:11px}.side-event small{display:block;color:#aaa;line-height:1.6;margin-top:7px}.main{margin-left:255px;width:calc(100% - 255px)}.topbar{height:70px;border-bottom:1px solid #222;display:flex;align-items:center;justify-content:space-between;padding:0 34px;position:sticky;top:0;background:rgba(7,7,7,.82);backdrop-filter:blur(14px);z-index:5}.topbar .status{font-size:10px;color:#777;letter-spacing:2px;font-weight:800}.badge{border:1px solid #47201f;background:#150c0b;border-radius:999px;padding:8px 13px;font-size:10px;color:#eee;font-weight:900;letter-spacing:1px}.content{padding:34px;max-width:1380px;margin:auto}.hero{position:relative;min-height:250px;border:1px solid #35201f;border-radius:18px;overflow:hidden;padding:35px 38px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(115deg,rgba(20,7,6,.98),rgba(13,13,13,.92) 48%,rgba(20,20,20,.75));box-shadow:0 20px 60px rgba(0,0,0,.32);margin-bottom:18px}.hero:before{content:'';position:absolute;right:-90px;top:-160px;width:500px;height:500px;background:radial-gradient(circle,rgba(225,6,0,.28),transparent 65%)}.hero:after{content:'🏁';position:absolute;right:55px;bottom:-25px;font-size:145px;opacity:.08;transform:rotate(-8deg)}.eyebrow{position:relative;color:#ff3b33;font-weight:900;font-size:11px;letter-spacing:2.6px}.hero h1{position:relative;font-size:clamp(36px,5vw,66px);line-height:.95;margin:10px 0 12px;letter-spacing:-2px;text-transform:uppercase}.hero p{position:relative;color:#aaa;margin:0;font-size:14px}.hero .race-line{position:relative;display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.hero .race-pill{border:1px solid #333;background:rgba(0,0,0,.28);padding:8px 11px;border-radius:999px;color:#ddd;font-size:11px;font-weight:700}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:linear-gradient(145deg,#171717,#0d0d0d);border:1px solid #292929;border-radius:14px;padding:20px;position:relative;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#49302f;box-shadow:0 12px 30px rgba(0,0,0,.3)}.card:after{content:'';position:absolute;right:-25px;bottom:-35px;width:100px;height:100px;background:radial-gradient(circle,rgba(225,6,0,.13),transparent 65%)}.card .label{color:#777;font-size:10px;text-transform:uppercase;letter-spacing:1.4px;font-weight:800}.card .value{font-size:25px;font-weight:1000;margin-top:10px;position:relative;z-index:1}.card .sub{color:#888;font-size:11px;margin-top:5px;position:relative;z-index:1}.section{margin-top:28px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:13px}.section h2{margin:0;font-size:20px;letter-spacing:-.3px}.section-head span{font-size:11px;color:#777}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.time{background:linear-gradient(145deg,#151515,#0c0c0c);border:1px solid #303030;padding:20px;text-align:center;border-radius:13px;box-shadow:inset 0 1px rgba(255,255,255,.03)}.time strong{display:block;font-size:34px;font-weight:1000;letter-spacing:-1px}.time span{font-size:9px;color:#777;text-transform:uppercase;letter-spacing:1.5px}.table-wrap{overflow:auto;border:1px solid #2b2b2b;border-radius:14px;background:#0e0e0e;box-shadow:0 12px 35px rgba(0,0,0,.2)}.table{width:100%;border-collapse:collapse;min-width:620px}.table th,.table td{text-align:left;padding:16px 18px;border-bottom:1px solid #202020;font-size:13px}.table th{color:#666;font-size:9px;text-transform:uppercase;letter-spacing:1.4px}.table tbody tr{transition:.18s}.table tbody tr:hover{background:#151515}.table tr:last-child td{border-bottom:0}.pos{font-weight:1000;width:65px}.pname{font-weight:850}.pts{font-weight:1000;font-size:17px}.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.pod{padding:23px;border:1px solid #2d2d2d;border-radius:14px;background:linear-gradient(145deg,#171717,#0e0e0e);position:relative;overflow:hidden}.pod:nth-child(1){border-color:#55461f;box-shadow:inset 0 2px 0 var(--gold)}.pod:nth-child(2){border-color:#3d3d3d;box-shadow:inset 0 2px 0 var(--silver)}.pod:nth-child(3){border-color:#452d20;box-shadow:inset 0 2px 0 var(--bronze)}.pod .medal{font-size:32px}.pod h3{margin:10px 0 3px;font-size:20px}.pod p{margin:0;color:#888;font-size:11px}.notice{padding:18px;border:1px dashed #3a3030;border-radius:12px;color:#999;font-size:13px;background:rgba(30,10,9,.22)}.footer{border-top:1px solid #222;margin-top:42px;padding:25px 0;color:#555;font-size:10px;text-align:center;letter-spacing:1.2px}
-@media(max-width:950px){.sidebar{position:relative;width:100%;height:auto;border-right:0;border-bottom:1px solid #222}.app{display:block}.main{margin-left:0;width:100%}.topbar{position:relative}.grid{grid-template-columns:repeat(2,1fr)}.content{padding:22px}.hero{min-height:220px}.podium{grid-template-columns:1fr}}
-@media(max-width:560px){.grid{grid-template-columns:1fr}.topbar{padding:0 18px}.status{display:none}.content{padding:15px}.hero{padding:27px 22px}.hero h1{font-size:40px}.hero:after{right:-5px}.countdown{grid-template-columns:repeat(2,1fr)}.nav a{display:inline-block;margin-right:3px}.side-event{display:none}}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #fff;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, #111, #1b1b1b);
+    border-bottom: 2px solid #e10600;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #e10600;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-top: 6px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 12px;
+    background: #0d0d0d;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav button {
+    background: #191919;
+    color: white;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button:hover {
+    background: #e10600;
+}
+
+.container {
+    width: 94%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.hero {
+    margin-top: 20px;
+    padding: 30px 20px;
+    border-radius: 16px;
+    background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.85)),
+        linear-gradient(135deg, #292929, #111);
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.hero h1 span {
+    color: #e10600;
+}
+
+.hero p {
+    color: #bbb;
+    font-size: 17px;
+}
+
+.race-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.info-card {
+    text-align: center;
+}
+
+.info-icon {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.info-title {
+    color: #888;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+.countdown {
+    margin-top: 20px;
+    background: #e10600;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+}
+
+.countdown-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#timer {
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: 8px;
+}
+
+section {
+    margin-top: 30px;
+}
+
+.section-title {
+    font-size: 25px;
+    margin-bottom: 15px;
+    border-left: 5px solid #e10600;
+    padding-left: 12px;
+}
+
+.standings {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th {
+    background: #1b1b1b;
+    color: #aaa;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 14px 10px;
+    text-align: center;
+}
+
+td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #262626;
+    text-align: center;
+}
+
+tbody tr:hover {
+    background: #151515;
+}
+
+.position {
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.first {
+    color: #ffd700;
+}
+
+.second {
+    color: #c0c0c0;
+}
+
+.third {
+    color: #cd7f32;
+}
+
+.driver {
+    text-align: left;
+    font-weight: bold;
+}
+
+.points {
+    color: #e10600;
+    font-weight: 900;
+}
+.pilot-number {
+    font-size: 40px;
+    font-weight: 900;
+    color: #252525;
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.pilot-name {
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+}
+
+.pilot-status {
+    margin-top: 8px;
+    color: #777;
+    font-size: 13px;
+}
+
+.race-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.race-round {
+    font-size: 14px;
+    color: #e10600;
+    font-weight: bold;
+}
+
+.race-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.race-date {
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.status {
+    background: #e10600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.result-form {
+    display: grid;
+    gap: 12px;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #181818;
+    color: white;
+    font-size: 15px;
+}
+
+button.primary {
+    background: #e10600;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.primary:hover {
+    background: #b80000;
+}
+
+.admin-note {
+    color: #888;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.empty {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 25px;
+    text-align: center;
+    background: #0d0d0d;
+    border-top: 1px solid #222;
+    color: #777;
+}
+
+footer strong {
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+
+    .logo {
+        font-size: 26px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .race-info {
+        grid-template-columns: 1fr;
+    }
+.race-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #timer {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 430px) {
+}
 </style>
 </head>
+
 <body>
-<div class="app">
-<aside class="sidebar">
-  <div class="brand">🏁 THE KARTING BROTHERS<span>ETAPA ÚNICA • 2026</span></div>
-  <div class="nav-title">Principal</div>
-  <nav class="nav">
-    <a class="active" href="#painel">▤ Painel</a>
-    <a href="#classificacao">🏆 Classificação</a>
-    <a href="#estatisticas">📊 Estatísticas</a>
-    <a href="#pilotos">👤 Pilotos</a>
-    <a href="#etapa">🏎️ Etapa</a>
-    <a href="#resultados">🏁 Resultados</a>
-    <a href="#vencedores">🏆 Vencedores</a>
-  </nav>
-  <div class="side-event"><b>PRÓXIMA E ÚNICA ETAPA</b><small>Kartódromo Granja Viana<br>24/10/2026 • 17:00</small></div>
-</aside>
-<main class="main">
-<header class="topbar"><div class="status">PAINEL DO CAMPEONATO</div><div class="badge">ETAPA ÚNICA • 2026</div></header>
-<div class="content">
-<section id="painel" class="hero"><div class="eyebrow">🏎️ CAMPEONATO 2026</div><h1>The Karting<br>Brothers</h1><p>Uma única etapa. Seis pilotos. Um campeão.</p><div class="race-line"><span class="race-pill">📍 Kartódromo Granja Viana</span><span class="race-pill">📅 24/10/2026</span><span class="race-pill">🕔 17:00</span></div></section>
-<section class="grid">
- <div class="card"><div class="label">Evento</div><div class="value">Etapa Única</div><div class="sub">24 de outubro de 2026</div></div>
- <div class="card"><div class="label">Local</div><div class="value">Granja Viana</div><div class="sub">Kartódromo Granja Viana</div></div>
- <div class="card"><div class="label">Pilotos</div><div class="value">6</div><div class="sub">Competidores inscritos</div></div>
- <div class="card"><div class="label">Pontuação máxima</div><div class="value">25 pts</div><div class="sub">Vitória</div></div>
+
+<header>
+    <div class="logo">🏁 THE <span>KARTING</span> BROTHERS</div>
+    <div class="subtitle">Campeonato Oficial • Temporada 2026</div>
+</header>
+
+<nav>
+    <button onclick="irPara('inicio')">🏠 Início</button>
+    <button onclick="irPara('classificacao')">🏆 Classificação</button>
+<button onclick="irPara('etapas')">📅 Etapas</button>
+    <button onclick="irPara('resultados')">🏁 Resultados</button>
+</nav>
+
+<main class="container">
+
+<section id="inicio">
+
+    <div class="hero">
+        <h1>THE <span>KARTING BROTHERS</span></h1>
+        <p>Velocidade, competição e amizade dentro das pistas.</p>
+    </div>
+
+    <div class="race-info">
+
+        <div class="card info-card">
+            <div class="info-icon">🏁</div>
+            <div class="info-title">Próxima etapa</div>
+            <div class="info-value">ETAPA 01</div>
+        </div>
+
+        <div class="card info-card">
+            <div class="info-icon">📍</div>
+            <div class="info-title">Local</div>
+            <div class="info-value">Kartódromo Granja Viana</div>
+        </div>
+
+        <div class="card info-card">
+            <div class="info-icon">📅</div>
+            <div class="info-title">Data</div>
+            <div class="info-value">24/10/2026 • 17:00</div>
+        </div>
+
+    </div>
+
+    <div class="countdown">
+        <div class="countdown-title">⏱️ Contagem para a próxima corrida</div>
+        <div id="timer">Calculando...</div>
+    </div>
+
 </section>
-<section id="etapa" class="section"><div class="section-head"><h2>⏱️ Contagem regressiva</h2><span>24/10/2026 às 17:00</span></div><div class="countdown"><div class="time"><strong id="days">--</strong><span>Dias</span></div><div class="time"><strong id="hours">--</strong><span>Horas</span></div><div class="time"><strong id="mins">--</strong><span>Minutos</span></div><div class="time"><strong id="secs">--</strong><span>Segundos</span></div></div></section>
-<section id="classificacao" class="section"><div class="section-head"><h2>🏆 Classificação</h2><span>Etapa única</span></div><div class="table-wrap"><table class="table"><thead><tr><th>Pos</th><th>Piloto</th><th>Pts</th></tr></thead><tbody id="ranking"></tbody></table></div></section>
-<section id="estatisticas" class="section"><div class="section-head"><h2>📊 Visão geral</h2><span>Sistema de pontuação</span></div><div class="grid"><div class="card"><div class="label">1º lugar</div><div class="value">25</div><div class="sub">pontos</div></div><div class="card"><div class="label">2º lugar</div><div class="value">18</div><div class="sub">pontos</div></div><div class="card"><div class="label">3º lugar</div><div class="value">15</div><div class="sub">pontos</div></div><div class="card"><div class="label">Demais posições</div><div class="value">12 / 10 / 8</div><div class="sub">pontos</div></div></div></section>
-<section id="pilotos" class="section"><div class="section-head"><h2>👤 Pilotos</h2><span>6 inscritos</span></div><div class="table-wrap"><table class="table"><thead><tr><th>#</th><th>Piloto</th><th>Status</th></tr></thead><tbody id="pilots"></tbody></table></div></section>
-<section id="resultados" class="section"><div class="section-head"><h2>🏁 Resultados</h2><span>Publicados pelo administrador</span></div><div class="notice">Os resultados da etapa serão exibidos aqui após o encerramento da corrida. O cadastro de resultados não fica disponível no site público.</div></section>
-<section id="vencedores" class="section"><div class="section-head"><h2>🏆 Vencedores</h2><span>Etapa única</span></div><div class="podium"><div class="pod"><div class="medal">🥇</div><h3>A definir</h3><p>Campeão da etapa</p></div><div class="pod"><div class="medal">🥈</div><h3>A definir</h3><p>Vice-campeão</p></div><div class="pod"><div class="medal">🥉</div><h3>A definir</h3><p>3º colocado</p></div></div></section>
-<div class="footer">THE KARTING BROTHERS • ETAPA ÚNICA • 2026</div>
-</div></main></div>
+
+
+<section id="classificacao">
+
+    <h2 class="section-title">🏆 Classificação do Campeonato</h2>
+
+    <div class="card standings">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Pos.</th>
+                    <th>Piloto</th>
+                    <th>Pts</th>
+                    <th>Vitórias</th>
+                    <th>Pódios</th>
+                    <th>Etapas</th>
+                </tr>
+            </thead>
+
+            <tbody id="classificationBody"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+<section id="etapas">
+
+    <h2 class="section-title">📅 Calendário</h2>
+
+    <div class="card">
+
+        <div class="race-card">
+
+            <div>
+                <div class="race-round">ETAPA 01</div>
+                <div class="race-name">Kartódromo Granja Viana</div>
+                <div class="race-date">
+                    📅 24 de outubro de 2026 • ⏰ 17:00
+                </div>
+            </div>
+
+            <div class="status">PRÓXIMA CORRIDA</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="resultados">
+
+    <h2 class="section-title">🏁 Resultados da Etapa 01</h2>
+
+    <div class="card">
+
+        <div id="resultsArea" class="empty">
+            A Etapa 01 ainda não possui resultados cadastrados.
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <h2 class="section-title">⚙️ Registrar Resultado</h2>
+
+    <div class="card">
+
+        <div class="result-form">
+
+            <label>Piloto</label>
+
+            <select id="pilotSelect"></select>
+
+            <label>Posição de chegada</label>
+
+            <input
+                type="number"
+                id="positionInput"
+                min="1"
+                max="6"
+                placeholder="Ex.: 1"
+            >
+
+            <button class="primary" onclick="registrarResultado()">
+                🏁 Registrar resultado
+            </button>
+
+        </div>
+
+        <div class="admin-note">
+            Os resultados ficam salvos no navegador deste dispositivo.
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+    <strong>THE KARTING BROTHERS</strong><br>
+    Temporada 2026 • Todos os pilotos na pista 🏎️
+</footer>
+
+
 <script>
-const pilotos=['Claudemir','Edu Santos','Fernandes','Giorlano','J. Oliveira','Mackson'];
-const ranking=document.getElementById('ranking');
-const pilots=document.getElementById('pilots');
-pilotos.forEach((nome,i)=>{ranking.innerHTML+=`<tr><td class="pos">${i+1}</td><td class="pname">${nome}</td><td class="pts">—</td></tr>`;pilots.innerHTML+=`<tr><td>${i+1}</td><td class="pname">${nome}</td><td>Inscrito</td></tr>`});
-function tick(){const target=new Date('2026-10-24T17:00:00-03:00').getTime();let d=target-Date.now();if(d<0)d=0;document.getElementById('days').textContent=Math.floor(d/86400000);d%=86400000;document.getElementById('hours').textContent=String(Math.floor(d/3600000)).padStart(2,'0');d%=3600000;document.getElementById('mins').textContent=String(Math.floor(d/60000)).padStart(2,'0');d%=60000;document.getElementById('secs').textContent=String(Math.floor(d/1000)).padStart(2,'0')}
-tick();setInterval(tick,1000);
+
+const pilotos = [
+    "Mackson",
+    "Fernandes",
+    "Claudemir",
+    "J. Oliveira",
+    "Edu Santos",
+    "Giorlano"
+];
+
+let resultados = JSON.parse(
+    localStorage.getItem("kartingBrothersResultados")
+) || [];
+
+
+function irPara(id) {
+
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+function carregarPilotos() {
+
+    const grid = document.getElementById("pilotGrid");
+    const select = document.getElementById("pilotSelect");
+
+    grid.innerHTML = "";
+    select.innerHTML = "";
+
+    pilotos.forEach((piloto, index) => {
+
+        const card = document.createElement("div");
+
+        card.className = "card pilot-card";
+
+        card.innerHTML = `
+            <div class="pilot-number">${String(index + 1).padStart(2,"0")}</div>
+            <div class="pilot-name">🏎️ ${piloto}</div>
+            <div class="pilot-status">Piloto oficial • Temporada 2026</div>
+        `;
+
+        grid.appendChild(card);
+
+        const option = document.createElement("option");
+
+        option.value = piloto;
+        option.textContent = piloto;
+
+        select.appendChild(option);
+
+    });
+
+}
+
+
+function calcularClassificacao() {
+
+    const dados = {};
+
+    pilotos.forEach(piloto => {
+
+        dados[piloto] = {
+            pontos: 0,
+            vitorias: 0,
+            podios: 0,
+            etapas: 0
+        };
+
+    });
+
+
+    resultados.forEach(resultado => {
+
+        const piloto = resultado.piloto;
+        const posicao = resultado.posicao;
+
+        let pontos = 0;
+
+        /*
+        Sistema de pontuação:
+        1º = 25
+        2º = 18
+        3º = 15
+        4º = 12
+        5º = 10
+        6º = 8
+        */
+
+        const pontuacao = {
+            1: 25,
+            2: 18,
+            3: 15,
+            4: 12,
+            5: 10,
+            6: 8
+        };
+
+        pontos = pontuacao[posicao] || 0;
+
+        dados[piloto].pontos += pontos;
+        dados[piloto].etapas++;
+
+        if (posicao === 1) {
+            dados[piloto].vitorias++;
+        }
+
+        if (posicao <= 3) {
+            dados[piloto].podios++;
+        }
+
+    });
+
+
+    return Object.entries(dados)
+        .sort((a,b) => b[1].pontos - a[1].pontos);
+
+}
+
+
+function atualizarClassificacao() {
+
+    const body = document.getElementById("classificationBody");
+
+    const classificacao = calcularClassificacao();
+
+    body.innerHTML = "";
+
+    classificacao.forEach((item, index) => {
+
+        const piloto = item[0];
+        const dados = item[1];
+
+        const tr = document.createElement("tr");
+
+        let classe = "position";
+
+        if (index === 0) classe += " first";
+        if (index === 1) classe += " second";
+        if (index === 2) classe += " third";
+
+        tr.innerHTML = `
+            <td class="${classe}">
+                ${index + 1}º
+            </td>
+
+            <td class="driver">
+                🏎️ ${piloto}
+            </td>
+
+            <td class="points">
+                ${dados.pontos}
+            </td>
+
+            <td>
+                ${dados.vitorias}
+            </td>
+
+            <td>
+                ${dados.podios}
+            </td>
+
+            <td>
+                ${dados.etapas}
+            </td>
+        `;
+
+        body.appendChild(tr);
+
+    });
+
+}
+
+
+function registrarResultado() {
+
+    const piloto =
+        document.getElementById("pilotSelect").value;
+
+    const posicao =
+        Number(document.getElementById("positionInput").value);
+
+
+    if (!posicao || posicao < 1 || posicao > 6) {
+
+        alert("Digite uma posição entre 1 e 6.");
+
+        return;
+    }
+
+
+    const jaRegistrado = resultados.some(
+        r => r.piloto === piloto
+    );
+
+
+    if (jaRegistrado) {
+
+        alert(
+            "Esse piloto já possui resultado cadastrado na Etapa 01."
+        );
+
+        return;
+    }
+
+
+    resultados.push({
+        piloto: piloto,
+        posicao: posicao
+    });
+
+
+    localStorage.setItem(
+        "kartingBrothersResultados",
+        JSON.stringify(resultados)
+    );
+
+
+    document.getElementById("positionInput").value = "";
+
+    atualizarTudo();
+
+    alert(
+        "Resultado registrado para " + piloto + "!"
+    );
+
+}
+
+
+function mostrarResultados() {
+
+    const area = document.getElementById("resultsArea");
+
+    if (resultados.length === 0) {
+
+        area.className = "empty";
+
+        area.innerHTML =
+            "A Etapa 01 ainda não possui resultados cadastrados.";
+
+        return;
+    }
+
+
+    const ordenados = [...resultados]
+        .sort((a,b) => a.posicao - b.posicao);
+
+
+    area.className = "";
+
+    let html = `
+        <div class="standings">
+        <table>
+        <thead>
+        <tr>
+            <th>Pos.</th>
+            <th>Piloto</th>
+            <th>Pontos</th>
+        </tr>
+        </thead>
+        <tbody>
+    `;
+
+
+    const pontuacao = {
+        1:25,
+        2:18,
+        3:15,
+        4:12,
+        5:10,
+        6:8
+    };
+
+
+    ordenados.forEach(resultado => {
+
+        html += `
+            <tr>
+                <td class="position">
+                    ${resultado.posicao}º
+                </td>
+
+                <td class="driver">
+                    🏎️ ${resultado.piloto}
+                </td>
+
+                <td class="points">
+                    ${pontuacao[resultado.posicao] || 0}
+                </td>
+            </tr>
+        `;
+
+    });
+
+
+    html += `
+        </tbody>
+        </table>
+        </div>
+    `;
+
+    area.innerHTML = html;
+
+}
+
+
+function atualizarTudo() {
+
+    atualizarClassificacao();
+
+    mostrarResultados();
+
+}
+
+
+function atualizarContagem() {
+
+    const dataCorrida =
+        new Date("2026-10-24T17:00:00-03:00");
+
+    const agora = new Date();
+
+    const diferenca =
+        dataCorrida - agora;
+
+
+    const timer =
+        document.getElementById("timer");
+
+
+    if (diferenca <= 0) {
+
+        timer.innerHTML =
+            "🏁 A CORRIDA JÁ COMEÇOU!";
+
+        return;
+    }
+
+
+    const dias =
+        Math.floor(
+            diferenca / (1000 * 60 * 60 * 24)
+        );
+
+    const horas =
+        Math.floor(
+            (diferenca / (1000 * 60 * 60)) % 24
+        );
+
+    const minutos =
+        Math.floor(
+            (diferenca / (1000 * 60)) % 60
+        );
+
+    const segundos =
+        Math.floor(
+            (diferenca / 1000) % 60
+        );
+
+
+    timer.innerHTML =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+}
+
+
+carregarPilotos();
+
+atualizarTudo();
+
+atualizarContagem();
+
+setInterval(
+    atualizarContagem,
+    1000
+);
+
 </script>
+
 </body>
 </html>
